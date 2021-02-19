@@ -1,0 +1,274 @@
+/*
+  ========================================
+  CSS Reset
+  ========================================
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+.navbar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 150px;
+  height: 100%;
+  background: #FAF7EF;
+  border-right: 2px solid #FAF7EF;
+  padding: 40px 30px;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1%;
+  background: #D6EBE3;
+  border-right: 2px solid #FAF7EF;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  
+}
+
+.topbar .logo {
+  font-size: 60px;
+  font-weight: 800;
+  border-bottom: 15px solid #F9AFAA;
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding: 0 12px;
+}
+
+.topbar #user {
+  float: right;
+  text-decoration: none;
+  font-size: 25px;
+  color: gray;
+
+}
+
+.navbar a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 5px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+  background-color: #FAF7EF;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.navbar .sub-header {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.navbar .project {
+  font-weight: 400;
+  font-size: 12px;
+  padding-left: 25px;
+  position: relative;
+  
+}
+.project:after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 25%;
+  height: 50%;
+  border-left: 1px solid gray;
+  line-height:50%; /*(or less, much less)*/
+  overflow:visible;
+}
+
+.navbar #new-project {
+  color: gray;
+}
+
+#main-content {
+  top: 80px;
+  left: 213px;
+  position: relative;
+  height: 100%;
+  color: black;
+  background-color: white;
+  padding: 60px 0px 40px 40px;
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.title, .date {
+  display: inline-block;
+}
+
+.date {
+  margin-left: 20px;
+}
+
+a:hover {
+  background-color: lightgray;
+}
+a.active {
+  background-color: lightgray;
+}
+
+.navbar hr {
+  margin: 20px 5px;
+}
+
+#task-list hr {
+  width: 75%;
+  margin-left: 0;
+}
+
+.due-date {
+  position: relative;
+  top: 0;
+  left: 50%;
+  display: inline-block;
+}
+
+
+.navbar span {
+  margin: 5px 10px 5px 0px;
+}
+
+
+
+body 
+{
+  font: 300 16px/22px "Poppins","Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+
+/*
+  ========================================
+  Checkbox
+  ========================================
+*/
+
+.task .task-label,
+.task div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.task {
+  margin-bottom: 30px;
+  padding-right: 100px;
+}
+
+.task-label {
+  margin: 5px 20px;
+  font-size: 20px;
+}
+
+.task-details {
+  font-size: 15px;
+  color: #9D9D9D;
+}
+
+#task-list{
+  padding: 60px 0 0 0;
+}
+
+
+
+.round {
+  position: relative;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: lightpink;
+  border-color: lightpink;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
