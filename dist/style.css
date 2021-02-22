@@ -52,6 +52,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
 
 
@@ -99,6 +103,10 @@ table {
 
 }
 
+#heading {
+  margin-bottom: 0px;
+}
+
 .navbar a {
   background-color: #eee; /* Grey background color */
   color: black; /* Black text color */
@@ -107,19 +115,24 @@ table {
   text-decoration: none; /* Remove underline from links */
   background-color: #FAF7EF;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .navbar .sub-header {
   font-weight: 600;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .navbar .project {
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: 300;
+  font-size: 15px;
   padding-left: 25px;
   position: relative;
+}
+
+.sub-item:first-child {
+  margin-top: 0px;
+  
   
 }
 .project:after {
@@ -144,11 +157,18 @@ table {
   height: 100%;
   color: black;
   background-color: white;
-  padding: 60px 0px 40px 40px;
+  padding: 40px 0px 40px 40px;
 }
 
+/*
+  ========================================
+  Header
+  ========================================
+*/
+
+
 .title {
-  font-size: 50px;
+  font-size: 35px;
   font-weight: 600;
 }
 
@@ -157,7 +177,7 @@ table {
 }
 
 .date {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 a:hover {
@@ -176,12 +196,18 @@ a.active {
   margin-left: 0;
 }
 
-.due-date {
-  position: relative;
-  top: 0;
-  left: 50%;
-  display: inline-block;
+
+
+
+.due-header {
+  text-align: right;
 }
+.wrapper {
+  padding: 0px 20px;
+  font-size: 12px;
+  width: 73%
+}
+
 
 
 .navbar span {
@@ -203,20 +229,42 @@ body
   ========================================
 */
 
-.task .task-label,
-.task div {
+.task .task-label
+ {
   display: inline-block;
   vertical-align: top;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .task {
-  margin-bottom: 30px;
+  margin: 15px 0;
   padding-right: 100px;
+  display: flex;
+  align-items: center;
 }
 
+.task:first-child{
+  margin: 0 0;
+  font-size: 13px;
+}
+
+.task-description {
+  flex: 3;
+  display: inline-block;
+
+}
+
+.task-action {
+  flex: 1;
+}
+
+
+
 .task-label {
-  margin: 5px 20px;
+  margin: 0px 20px;
   font-size: 20px;
+  width: 50%;
 }
 
 .task-details {
@@ -224,18 +272,17 @@ body
   color: #9D9D9D;
 }
 
-#task-list{
-  padding: 60px 0 0 0;
-}
 
 
 
 .round {
+
+  display: inline-block;
   position: relative;
 }
 
 .round label {
-  background-color: #fff;
+  background-color: #f8f8ff;
   border: 1px solid #ccc;
   border-radius: 50%;
   cursor: pointer;
@@ -272,3 +319,24 @@ body
 .round input[type="checkbox"]:checked + label:after {
   opacity: 1;
 }
+
+.add-new-task {
+  color: gray;
+
+}
+
+/* .col-1-3 {
+  width: 30%;
+  padding: 0 10px;
+}
+
+.col-2-3 {
+  width: 66.66%;
+}
+
+.col-1-3,
+.col-2-3 {
+  display: inline-block;
+  vertical-align: center;
+} */
+
