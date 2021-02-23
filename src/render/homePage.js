@@ -1,62 +1,55 @@
-import { populateList } from '../helpers/todo.js';
 
 
 
-//rendering
+//rendering task
 function onload(){
-  
   let DOMtaskList = document.getElementById('task-list')
-  let taskList = populateList();
- 
-  
-  for (let i of taskList){
-    console.log(i);
-    let newTask = document.createElement('li');
-    newTask.classList.add("task");
-    newTask.innerHTML = `<div class="task-description">
+  let referenceNode = document.getElementById("task-row")
 
-    <div class="round">
-      <input type="checkbox" id="${i.title}"/>
-      <label for="${i.title}"></label>
-    </div>
-    
-    <label class="task-label">${i.title}
-    <p class="task-details">${i.project}</p>
-  </label>
-  </div>
-
-  <div class="task-action">
-    
-  <p class="due-date">${i.dueDate}</p>
-  </div>`;
-
-  DOMtaskList.appendChild(newTask);
-  DOMtaskList.appendChild(document.createElement('hr'));
+  //firestore access
+  //async call that returns a promise. returns snapshot that we can use
+  db.collection('tasks').get().then((snapshot) =>{
+    snapshot.docs.forEach(doc => {
+      let newTask = renderTask(doc);
+      DOMtaskList.insertBefore(newTask, referenceNode);
+      DOMtaskList.insertBefore(document.createElement('hr'), referenceNode);
+    })
+  })
   }
 
-  let newTask = document.createElement('li');
-  newTask.classList.add("task", "add-new");
-    newTask.innerHTML = `<div class="task-description">
 
+
+function getFormattedDate(date) {
+  let year = date.getFullYear();
+  let month = (1 + date.getMonth()).toString().padStart(2, '0');
+  let day = date.getDate().toString().padStart(2, '0');
+  return month + '/' + day + '/' + year;
+}
+
+
+function renderTask(doc) {
+  let dueDate = getFormattedDate(doc.data().dueDate.toDate());
+  let newTask = document.createElement('li');
+    newTask.classList.add("task");
+    newTask.innerHTML = `<div class="task-description" data-id="${doc.id}">
     <div class="round">
-      <input type="checkbox" id="addNewTask"/>
-      <label for="addNew"></label>
+      <input type="checkbox" id="${doc.id}"/>
+      <label for="${doc.id}"></label>
     </div>
     
-    <label class="task-label add-new-task">Add New...
+    <label class="task-label">${doc.data().title}
+    <p class="task-details">${doc.data().project}</p>
   </label>
   </div>
 
   <div class="task-action">
     
-  <p class="due-date"></p>
+  <p class="due-date">${dueDate}</p>
   </div>`;
-
-DOMtaskList.appendChild(newTask);
-
-
-
+  return newTask;
 }
+
+
 
 export {
   onload

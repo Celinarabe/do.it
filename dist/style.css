@@ -196,6 +196,9 @@ a.active {
   margin-left: 0;
 }
 
+label.add-new-task {
+  cursor: pointer;
+}
 
 
 
@@ -271,7 +274,6 @@ body
   font-size: 15px;
   color: #9D9D9D;
 }
-
 
 
 
