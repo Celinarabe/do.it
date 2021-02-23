@@ -1,21 +1,7 @@
 
 
 
-//rendering task
-function onload(){
-  let DOMtaskList = document.getElementById('task-list')
-  let referenceNode = document.getElementById("task-row")
 
-  //firestore access
-  //async call that returns a promise. returns snapshot that we can use
-  db.collection('tasks').get().then((snapshot) =>{
-    snapshot.docs.forEach(doc => {
-      let newTask = renderTask(doc);
-      DOMtaskList.insertBefore(newTask, referenceNode);
-      DOMtaskList.insertBefore(document.createElement('hr'), referenceNode);
-    })
-  })
-  }
 
 
 
@@ -24,6 +10,12 @@ function getFormattedDate(date) {
   let month = (1 + date.getMonth()).toString().padStart(2, '0');
   let day = date.getDate().toString().padStart(2, '0');
   return month + '/' + day + '/' + year;
+}
+
+function renderCheckbox(doc) {
+  if (doc.data().done){
+    document.getElementById(doc.id).click();
+  }
 }
 
 
@@ -48,6 +40,23 @@ function renderTask(doc) {
   </div>`;
   return newTask;
 }
+
+//rendering task
+function onload(){
+  let DOMtaskList = document.getElementById('task-list')
+  let referenceNode = document.getElementById("task-row")
+
+  //firestore access
+  //async call that returns a promise. returns snapshot that we can use
+  db.collection('tasks').get().then((snapshot) =>{
+    snapshot.docs.forEach(doc => {
+      let newTask = renderTask(doc);
+      DOMtaskList.insertBefore(newTask, referenceNode);
+      DOMtaskList.insertBefore(document.createElement('hr'), referenceNode);
+      renderCheckbox(doc);
+    })
+  })
+  }
 
 
 
