@@ -69,8 +69,31 @@
         <p class="due-date"></p>
         </div>
       </li>
+      
+    </ul> 
 
-    </ul>  
+
+
+    <form id="task-form" hidden>
+      <input class="input-box"type="text" id="task-title" name="title" placeholder="Task Name">
+       
+      <select class="input-box"name="project" id="task-project">
+          <!-- TO DO: build list dynamically -->
+          <option value="" disabled selected>Select Project</option>
+          <option value="Rome Vacation">Rome Vacation</option>
+          <option value="Bachelorette Party">Bachelorette Party</option>
+          <option value="general">general</option>
+        </select>
+
+        <input class="input-box"type="date" id="task-dueDate" name="dueDate">
+
+        <button class="form-submit"type="submit" value="Submit">
+        <span class="material-icons">check_circle</span>
+        </button>
+        <button type="button" id="form-cancel">
+        <span class="material-icons">cancel</span>
+        </button> 
+    </form>
   
 
 
@@ -110,13 +133,17 @@
       </a>
       </li>
 
-      <li class="sub-item">
-      <a href="#" class="navbar__link project" id="new-project">
+      <li class="sub-item"id="new-project">
+      <a href="#" class="navbar__link project" >
         New Project...
       </a>
       </li>
 
       </ul>
+     
+        <form id="project-form" hidden>
+        <input class="input-box"type="text" id="input-project-title" name="new-project">
+      </form>
       
     </div>
 
@@ -145,6 +172,10 @@
     firebase.analytics();
 
     const db = firebase.firestore();
+
+  
+    
+
 </script>
 
 

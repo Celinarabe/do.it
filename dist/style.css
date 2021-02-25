@@ -219,9 +219,56 @@ label.add-new-task {
 
 
 
-body 
+body, input, select
 {
   font: 300 16px/22px "Poppins","Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*
+  ========================================
+  New Task Form
+  ========================================
+*/
+
+.input-box {
+  border: none;
+  background-color: #E9E7E7;
+  padding: 7px;
+}
+
+#task-title, #task-dueDate, #task-project, #project-title{
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+#task-title, #task-dueDate{
+  height: 20px;
+}
+
+#task-project {
+  height: 36px;
+}
+
+#task-form {
+  margin-top: 20px;
+}
+
+#task-form span {
+  font-size: 2.2em;
+}
+
+#input-project-title {
+  width: 75%;
+  height: 1em;
+  margin: 10px;
+}
+
+.form-submit, #form-cancel{
+  border: none;
+  background: none;
+  color: #2C2F33;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 
