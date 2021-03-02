@@ -146,11 +146,11 @@ table {
   overflow:visible;
 }
 
-.navbar #new-project {
+#new-project a {
   color: gray;
 }
 
-#main-content {
+.main-content {
   top: 80px;
   left: 213px;
   position: relative;
@@ -236,7 +236,7 @@ body, input, select
   padding: 7px;
 }
 
-#task-title, #task-dueDate, #task-project, #project-title{
+#task-title, #task-dueDate, .task-project, #project-title{
   margin: 0 10px;
   border-radius: 5px;
 }
@@ -245,7 +245,7 @@ body, input, select
   height: 20px;
 }
 
-#task-project {
+.task-project {
   height: 36px;
 }
 
@@ -294,10 +294,11 @@ body, input, select
   align-items: center;
 }
 
-.task:first-child{
+#due-date-header{
   margin: 0 0;
   font-size: 13px;
-}
+  cursor: pointer;
+} 
 
 .task-description {
   flex: 3;
@@ -389,3 +390,6 @@ body, input, select
   vertical-align: center;
 } */
 
+.sort-icon {
+  height: 10px;
+}

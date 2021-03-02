@@ -7,4 +7,4 @@ function getFormattedDate(date) {
 
 export {
   getFormattedDate
-};
+}

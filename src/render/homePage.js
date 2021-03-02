@@ -1,39 +1,54 @@
 
-import { renderTask } from './renderTask.js'
+import { renderTask } from './task.js'
+import { renderProject} from './project.js'
+import { sortDate } from '../helpers/sortDate.js'
+import { setDate } from '../helpers/setDate.js'
 
 //rendering task list
 function onload(){
+  document.getElementById("today-page").hidden = false;
+
+    taskList();
+    projectList();
+    currentDate();
+}
+  
+
+
+function taskList() {
   //firestore access
-  //async call that returns a promise. returns snapshot that we can use
-  db.collection('tasks').get().then((snapshot) =>{
+//async call that returns a promise. returns snapshot that we can use
+db.collection('tasks').get().then((snapshot) =>{
+  snapshot.docs.forEach(doc => {
+    renderTask(doc);
+  })
+})
+setDate();
+}
+
+
+function projectList() {
+  db.collection('projects').get().then((snapshot) =>{
     snapshot.docs.forEach(doc => {
-      renderTask(doc);
+      renderProject(doc);
     })
   })
-  setDate();
   }
 
-
-
-
-
-
-
-
-
-
-
-function setDate() {
-  var field = document.querySelector('#task-dueDate');
-  var date = new Date();
-
-  // Set the date
-  field.value = date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, 0) + 
-      '-' + date.getDate().toString().padStart(2, 0);
-  field.min = date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, 0) + 
-      '-' + date.getDate().toString().padStart(2, 0);
-
+function currentDate() {
+  var d = (new Date()).toString().split(' ').splice(1,3).join(' ');
+  document.querySelector(".date").innerHTML = d;
 }
+
+
+  
+
+
+
+
+
+
+
 
 
 
@@ -42,7 +57,9 @@ function setDate() {
 
 
 export {
-  onload
+  onload,
+  sortDate,
+  setDate
 };
 
 

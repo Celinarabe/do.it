@@ -1,11 +1,11 @@
-import { getFormattedDate } from '../helpers/getFormattedDate.js'
+import { getFormattedDate } from '../helpers/formatDate.js'
 
 function renderTask(doc) {
 
-  let DOMtaskList = document.getElementById('task-list')
+  let DOMtaskList = document.getElementById('task-list-start')
   let referenceNode = document.getElementById("task-row")
 
-  console.log(doc.data().dueDate);
+
   let dueDate = getFormattedDate(doc.data().dueDate.toDate());
   let newTask = document.createElement('li');
     newTask.classList.add("task");
@@ -24,8 +24,8 @@ function renderTask(doc) {
     
   <p class="due-date">${dueDate}</p>
   </div>`;
-  DOMtaskList.insertBefore(newTask, referenceNode);
-  DOMtaskList.insertBefore(document.createElement('hr'), referenceNode);
+  DOMtaskList.appendChild(newTask);
+  DOMtaskList.appendChild(document.createElement('hr'));
 
   renderCheckbox(doc);
 }
