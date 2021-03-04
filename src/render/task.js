@@ -24,14 +24,26 @@ function renderTask(doc) {
     
   <p class="due-date">${dueDate}</p>
   </div>`;
+
   DOMtaskList.appendChild(newTask);
   DOMtaskList.appendChild(document.createElement('hr'));
+  let checkbox = document.getElementById(doc.id)
+  console.log(checkbox)
+  checkbox.addEventListener("click", function (){
+    toggleDone(checkbox, doc.id);
+  })
 
   renderCheckbox(doc);
 }
 
 
-
+function toggleDone(checkbox,id){
+  if (checkbox.checked) {
+    db.collection("tasks").doc(id).update({done: "true"});
+  } else {
+    db.collection("tasks").doc(id).update({done: "false"});
+  }
+}
 
 
 
