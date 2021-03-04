@@ -84,6 +84,9 @@ table {
 }
 
 .topbar .logo {
+  line-height: 0.4em;
+  margin-top: 10px;
+  
   font-size: 60px;
   font-weight: 800;
   border-bottom: 15px solid #F9AFAA;
@@ -221,7 +224,8 @@ label.add-new-task {
 
 body, input, select
 {
-  font: 300 16px/22px "Poppins","Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font: 300 16px/22px "Poppins","Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-family: Poppins ,system, -apple-system, "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 }
 
 /*

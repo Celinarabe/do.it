@@ -7,11 +7,14 @@ import { setDate } from '../helpers/setDate.js'
 //rendering task list
 function onload(){
   document.getElementById("today-page").hidden = false;
+  document.querySelector("#heading .title").innerHTML = "All Tasks";
+  document.getElementById("task-list-start").innerHTML = "";
 
     taskList();
     projectList();
     currentDate();
 }
+
   
 
 
@@ -41,6 +44,11 @@ function currentDate() {
 }
 
 
+
+
+
+
+
   
 
 
@@ -59,7 +67,9 @@ function currentDate() {
 export {
   onload,
   sortDate,
-  setDate
+  setDate,
+  taskList,
+  currentDate
 };
 
 

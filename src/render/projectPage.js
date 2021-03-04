@@ -1,5 +1,5 @@
 import { renderTask, renderCheckbox } from '../render/task.js';
-import { setDate} from './homePage.js'
+import { setDate} from './onload.js'
 
 function renderProjectPage(projectTitle) {
 console.log('trying gggg to render')
@@ -21,10 +21,7 @@ db.collection('tasks').where('project', '==', projectTitle).get().then((snapshot
 setDate();
 }
 
-function taskForm(projectTitle){
-  
 
-}
 
 
 
